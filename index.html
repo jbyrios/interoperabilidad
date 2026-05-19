@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interoperabilidad Sistemas de Salud Colombia | Infografía Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(145deg, #E8EEF5 0%, #DDE5ED 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 24px;
+            min-height: 100vh;
+        }
+
+        .infografia {
+            max-width: 1400px;
+            width: 100%;
+            background: rgba(255,255,255,0.98);
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
+
+        /* HEADER PREMIUM */
+        .header {
+            background: linear-gradient(135deg, #0A2B3E 0%, #1A4A6F 50%, #0F3B5E 100%);
+            color: white;
+            padding: 40px 40px 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -40%;
+            left: -10%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+            position: relative;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-top: 12px;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .header-badge {
+            background: rgba(255,152,0,0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,152,0,0.4);
+            border-radius: 40px;
+            padding: 6px 18px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 18px;
+            color: #FFE0B2;
+            position: relative;
+        }
+
+        /* Contenido */
+        .contenido {
+            padding: 40px;
+        }
+
+        /* SISPRO - Centro integrador */
+        .integrador {
+            background: linear-gradient(145deg, #F0F7FF, #E3F0FC);
+            border: 1px solid rgba(13,71,161,0.15);
+            border-radius: 32px;
+            text-align: center;
+            padding: 32px 24px;
+            margin-bottom: 48px;
+            box-shadow: 0 12px 24px -12px rgba(13,71,161,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .integrador::after {
+            content: "⛓️";
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            font-size: 80px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .integrador h2 {
+            color: #0D47A1;
+            font-size: 1.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .integrador p {
+            color: #1a3a5c;
+            margin-top: 12px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .badge-central {
+            background: #0D47A1;
+            color: white;
+            display: inline-block;
+            border-radius: 60px;
+            padding: 6px 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 16px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(13,71,161,0.3);
+        }
+
+        .protocolo-badge {
+            background: rgba(21,101,192,0.1);
+            color: #0D47A1;
+            display: inline-block;
+            border-radius: 60px;
+            padding: 5px 16px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 12px;
+            border: 1px solid rgba(13,71,161,0.2);
+        }
+
+        /* Grid de sistemas */
+        .grid-sistemas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            justify-content: center;
+            margin: 40px 0 40px;
+        }
+
+        /* Tarjetas premium */
+        .card {
+            flex: 1;
+            min-width: 310px;
+            background: #FFFFFF;
+            border-radius: 28px;
+            padding: 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px -16px rgba(0,0,0,0.15);
+            border-color: rgba(0,0,0,0.1);
+        }
+
+        /* Cabecera de cada tarjeta */
+        .card-header {
+            padding: 18px 20px 12px 20px;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .card-header .descripcion {
+            font-size: 0.8rem;
+            color: #5a6874;
+            line-height: 1.4;
+        }
+
+        /* Colores de bordes en la cabecera */
+        .card-reps .card-header { border-top: 4px solid #2E7D32; border-radius: 28px 28px 0 0; }
+        .card-rethus .card-header { border-top: 4px solid #2E7D32; }
+        .card-ruaf .card-header { border-top: 4px solid #0288D1; }
+        .card-sivigila .card-header { border-top: 4px solid #E65100; }
+        .card-paiweb .card-header { border-top: 4px solid #6A1B9A; }
+        .card-sismed .card-header { border-top: 4px solid #C2185B; }
+
+        /* Cuerpo de la tarjeta */
+        .card-body {
+            padding: 18px 20px 22px;
+        }
+
+        .titulo-conexiones {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #8E9AA8;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        /* Badges de conexión mejorados */
+        .badge-conexion {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: #F9FAFE;
+            border-radius: 20px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+            border: 1px solid #EDF2F7;
+        }
+
+        .badge-conexion:hover {
+            background: #ffffff;
+            border-color: #cbd5e1;
+            transform: translateX(2px);
+        }
+
+        .badge-conexion .flecha {
+            font-size: 1.1rem;
+            min-width: 36px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .badge-conexion .contenido {
+            flex: 1;
+            padding: 0;
+            margin: 0;
+        }
+
+        .badge-conexion .que {
+            font-weight: 700;
+            font-size: 0.82rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .badge-conexion .porque {
+            font-size: 0.7rem;
+            color: #5b6e8c;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        /* Colores temáticos para badges */
+        .badge-conexion.verde { background: #F2F9F2; border-left: 3px solid #2E7D32; }
+        .badge-conexion.azul { background: #F0F6FD; border-left: 3px solid #0288D1; }
+        .badge-conexion.naranja { background: #FFF5EE; border-left: 3px solid #E65100; }
+        .badge-conexion.morado { background: #F6F2FA; border-left: 3px solid #6A1B9A; }
+        .badge-conexion.rosa { background: #FEF2F6; border-left: 3px solid #C2185B; }
+        .badge-conexion.oscuro { background: #EEF2F7; border-left: 3px solid #0D47A1; }
+
+        /* Tabla elegante */
+        .tabla-flujos {
+            background: #FFFFFF;
+            border-radius: 28px;
+            padding: 24px;
+            margin-top: 32px;
+            border: 1px solid #E9EDF2;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .tabla-flujos h4 {
+            color: #1F2A3A;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 14px 12px;
+            background: #F8FAFE;
+            color: #2D3A4A;
+            font-weight: 600;
+            border-radius: 16px 16px 0 0;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #EDF2F7;
+            color: #334155;
+        }
+
+        .highlight td {
+            background-color: #F9FBFD;
+        }
+
+        /* Dato clave destacado */
+        .dato-clave {
+            background: linear-gradient(135deg, #EFFAF5, #E8F5F0);
+            margin-top: 32px;
+            padding: 22px 28px;
+            border-radius: 28px;
+            text-align: center;
+            border-left: 6px solid #00838F;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1C4E5A;
+        }
+
+        /* Footer */
+        .footer {
+            background: #F8FAFE;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #6C7A8E;
+            border-top: 1px solid #E9EDF2;
+        }
+
+        .referencias {
+            font-size: 0.68rem;
+            color: #7E8A9B;
+            margin-top: 20px;
+            text-align: left;
+            border-top: 1px solid #E9EDF2;
+            padding-top: 18px;
+        }
+
+        @media (max-width: 780px) {
+            .contenido { padding: 20px; }
+            .header h1 { font-size: 1.5rem; }
+            .grid-sistemas { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="infografia">
+    <div class="header">
+        <h1>INTEROPERABILIDAD EN SALUD</h1>
+        <p>REPS · RETHUS · RUAF-ND · SIVIGILA · SISMED · PAIWEB · SISPRO</p>
+        <div class="header-badge">Conexiones activas con propósito y trazabilidad</div>
+    </div>
+
+    <div class="contenido">
+        <!-- SISPRO: Integrador elegante -->
+        <div class="integrador">
+            <h2>SISPRO</h2>
+            <p>Sistema Integral de Información de la Protección Social — Centro neurálgico de la interoperabilidad</p>
+            <div class="badge-central">BUS DE SERVICIOS (ESB)</div>
+            <div class="protocolo-badge">HL7 · FHIR · SOAP/REST · OAuth2</div>
+        </div>
+
+        <!-- Grid de sistemas con conexiones explicadas -->
+        <div class="grid-sistemas">
+            
+            <!-- REPS -->
+            <div class="card card-reps">
+                <div class="card-header">
+                    <h3>REPS</h3>
+                    <div class="descripcion">Registro Especial de Prestadores — IPS, clínicas y profesionales habilitados</div>
+                </div>
+                <div class="card-body">
+                    <div class="titulo-conexiones">CONEXIONES Y PROPÓSITO</div>
+                    <div class="badge-conexion verde">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">SISPRO</span>
+                            <span class="porque">SISPRO consolida el mapa nacional de oferta de servicios y habilita consultas ciudadanas.</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion verde">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">RETHUS</span>
+                            <span class="porque">Valida que los profesionales vinculados a una IPS tengan tarjeta profesional activa.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RETHUS -->
+            <div class="card card-rethus">
+                <div class="card-header">
+                    <h3>RETHUS</h3>
+                    <div class="descripcion">Registro de Talento Humano — Tarjeta profesional e idoneidad</div>
+                </div>
+                <div class="card-body">
+                    <div class="titulo-conexiones">CONEXIONES Y PROPÓSITO</div>
+                    <div class="badge-conexion verde">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">SISPRO</span>
+                            <span class="porque">SISPRO mantiene el registro único de talento humano asociado a prestadores.</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion verde">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">REPS</span>
+                            <span class="porque">Permite verificar qué profesionales están autorizados para ejercer en cada IPS.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RUAF-ND -->
+            <div class="card card-ruaf">
+                <div class="card-header">
+                    <h3>RUAF-ND</h3>
+                    <div class="descripcion">Registro de Nacimientos y Defunciones — Hechos vitales</div>
+                </div>
+                <div class="card-body">
+                    <div class="titulo-conexiones">CONEXIONES Y PROPÓSITO</div>
+                    <div class="badge-conexion azul">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">SISPRO</span>
+                            <span class="porque">Centraliza las estadísticas vitales del país (nacimientos y defunciones).</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion azul">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">SIVIGILA</span>
+                            <span class="porque">SIVIGILA recibe causas de muerte y activa alertas epidemiológicas.</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion azul">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">PAIWEB</span>
+                            <span class="porque">Valida la identidad de la persona antes de aplicar una vacuna.</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion oscuro">
+                        <span class="flecha">→</span>
+                        <div class="contenido">
+                            <span class="que">REGISTRADURÍA</span>
+                            <span class="porque">Inscripción automática de defunciones (Resolución 1528/2024).</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIVIGILA -->
+            <div class="card card-sivigila">
+                <div class="card-header">
+                    <h3>SIVIGILA</h3>
+                    <div class="descripcion">Vigilancia en Salud Pública — Dengue, COVID-19, mortalidad</div>
+                </div>
+                <div class="card-body">
+                    <div class="titulo-conexiones">CONEXIONES Y PROPÓSITO</div>
+                    <div class="badge-conexion naranja">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">SISPRO</span>
+                            <span class="porque">Consolida indicadores de salud pública a nivel nacional.</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion naranja">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">RUAF-ND</span>
+                            <span class="porque">Recibe causas de muerte y las cruza con eventos de vigilancia (ej. mortalidad por dengue).</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion naranja">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">PAIWEB</span>
+                            <span class="porque">Reporta eventos adversos post-vacunación y monitorea coberturas.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAIWEB -->
+            <div class="card card-paiweb">
+                <div class="card-header">
+                    <h3>PAIWEB</h3>
+                    <div class="descripcion">Registro Nominal de Vacunación — Circular 7/2022</div>
+                </div>
+                <div class="card-body">
+                    <div class="titulo-conexiones">CONEXIONES Y PROPÓSITO</div>
+                    <div class="badge-conexion morado">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">SISPRO</span>
+                            <span class="porque">Alimenta el registro único de vacunados a nivel nacional.</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion morado">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">RUAF-ND</span>
+                            <span class="porque">Valida la identidad del vacunado contra la base de afiliados.</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion morado">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">SIVIGILA</span>
+                            <span class="porque">Reporta eventos adversos post-vacuna y calcula coberturas.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SISMED -->
+            <div class="card card-sismed">
+                <div class="card-header">
+                    <h3>SISMED</h3>
+                    <div class="descripcion">Precios, ventas y recobros de medicamentos</div>
+                </div>
+                <div class="card-body">
+                    <div class="titulo-conexiones">CONEXIONES Y PROPÓSITO</div>
+                    <div class="badge-conexion rosa">
+                        <span class="flecha">↔</span>
+                        <div class="contenido">
+                            <span class="que">SISPRO</span>
+                            <span class="porque">Consolida información de precios y volúmenes de venta de medicamentos.</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion rosa">
+                        <span class="flecha">→</span>
+                        <div class="contenido">
+                            <span class="que">DIAN</span>
+                            <span class="porque">Factura electrónica de venta para control de precios (proyecto 2026).</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion rosa">
+                        <span class="flecha">→</span>
+                        <div class="contenido">
+                            <span class="que">ADRES</span>
+                            <span class="porque">Gestión de recobros de medicamentos no cubiertos por el plan de beneficios.</span>
+                        </div>
+                    </div>
+                    <div class="badge-conexion" style="background:#FFF8F0; border-left-color:#FFB74D;">
+                        <span class="flecha">◌</span>
+                        <div class="contenido">
+                            <span class="que">RIPS (en proceso)</span>
+                            <span class="porque">Integración futura para trazabilidad completa del medicamento al paciente.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla resumen -->
+        <div class="tabla-flujos">
+            <h4>TABLA DE FLUJOS ESTRATÉGICOS</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conexión</th>
+                        <th>Intercambio</th>
+                        <th>Propósito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight"><td>REPS ↔ RETHUS</td><td>IPS vs Profesionales</td><td>Validar idoneidad en cada institución</td></tr>
+                    <tr><td>RUAF-ND ↔ SIVIGILA</td><td>Causas de muerte</td><td>Alertas epidemiológicas tempranas</td></tr>
+                    <tr class="highlight"><td>RUAF-ND → Registraduría</td><td>Defunción digital</td><td>Inscripción automática sin trámites</td></tr>
+                    <tr><td>PAIWEB ↔ RUAF-ND</td><td>Identidad del vacunado</td><td>Validación de afiliación</td></tr>
+                    <tr class="highlight"><td>PAIWEB ↔ SIVIGILA</td><td>Eventos adversos</td><td>Seguridad y efectividad de vacunas</td></tr>
+                    <tr><td>SISMED → DIAN / ADRES</td><td>Facturación y recobros</td><td>Control de precios y gestión financiera</td></tr>
+                    <tr class="highlight"><td>Todos ↔ SISPRO</td><td>Consolidación nacional</td><td>Indicadores y decisiones públicas</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Dato clave estilizado -->
+        <div class="dato-clave">
+            <strong>POR QUÉ CADA CONEXIÓN IMPORTA</strong><br>
+            REPS + RETHUS → Seguridad clínica · RUAF-ND + SIVIGILA → Vigilancia epidemiológica<br>
+            PAIWEB + RUAF → Vacunación confiable · SISMED + DIAN → Transparencia en precios<br>
+            TODOS + SISPRO → Decisiones basadas en datos reales
+        </div>
+
+        <div class="referencias">
+            <strong>FUENTES Y NORMATIVA</strong><br>
+            Res. 1528/2024 Registraduría · Circular 7/2022 Ministerio Salud · Proyecto circular SISMED 2026 · HL7 FHIR · ESB para salud
+        </div>
+    </div>
+
+    <div class="footer">
+        Infografía actualizada — Mayo 2026 | Diseño premium de interoperabilidad en salud para Colombia
+    </div>
+</div>
+</body>
+</html>
